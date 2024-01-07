@@ -1,0 +1,27 @@
+Projet secret santa:
+
+- Entièrement fonctionnel.
+- L'interaction avec les "panels" qui sont les blocs avec les noms se fait
+  directement dans le moteur d'Unity. Les panels sont déjà dans la scène de jeu
+  et sont ajoutés dans la liste de panels via celle-ci.
+
+Projet test Angular
+
+-Beaucoup de difficultés rencontrées... (l'apprentissage de l'Angular ayant été la plus grande)
+
+-Tentative d'intégration de google map pour l'écran 1 sans succès.. 
+
+	une première fois via @amg/core.. | Problème rencontré: module incompatible avec Angular Ivy.
+sources trouvées: https://angular-maps.com/ | https://www.youtube.com/watch?v=lApggVS0icc&ab_channel=Academind
+	
+	une deuxième fois via @angular/googlemaps  | Problème rencontré: échec d'intégration
+sources trouvées : https://www.youtube.com/watch?v=PDMd35Uamwg&ab_channel=CoreKnowledgeSharing | https://medium.com/@rootsn221/angular-google-maps-22d316eaf605
+
+-Tentative d'affichage des capitales dans l'écran 2 sans succès... 
+ J'ai largement réutilisé le template de Tower of Heroes, le jugeant approprié pour la gestion de la base de données et pour l'architecture. 
+Cependant, j'ai trop dépendu de celui-ci, ce qui a compliqué l'intégration de nouvelles features comme la carte google map.
+
+Résumé :
+
+Malgré la non réussite du test Technique en Angular, je pense avoir trouvé quelques pistes intéréssantes qui m'auraient permit de le réussir avec plus de temps et d'expérience.
+J'ai pu apprendre beaucoup de choses sur le fonctionnement de ce Framework et je ne perds pas ma motivation pour en apprendre davantage.
