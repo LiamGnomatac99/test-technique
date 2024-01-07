@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "angular-in-memory-web-api": "^0.17.0"
+  },
+  "dependencies": {
+    "@angular/google-maps": "^17.0.4"
+  }
+}

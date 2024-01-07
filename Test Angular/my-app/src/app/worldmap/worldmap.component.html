@@ -1,0 +1,14 @@
+<h2>Top Cities</h2>
+<div class="cities-menu">
+    <a *ngFor="let city of cities" routerLink="/detail/{{city.id}}">
+        {{city.name}}
+    </a>
+</div>
+
+<!-- google-maps-demo.component.html -->
+<google-map height="400px" width="750px" [center]="center" [zoom]="zoom" (mapClick)="moveMap($event)"
+    (mapMousemove)="move($event)" />
+
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
+<app-city-search></app-city-search>

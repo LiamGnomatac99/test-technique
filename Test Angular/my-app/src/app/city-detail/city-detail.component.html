@@ -1,0 +1,20 @@
+<div *ngIf="city">
+    <h2>{{city.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{city.id}}</div>
+    <div>
+      <label for="city-name">city name: </label>
+      <input id="city-name" [(ngModel)]="city.name" placeholder="city name"/>
+      <label for="city-country">city country: </label>
+      <input id="city-country" [(ngModel)]="city.country" placeholder="city country"/>
+      <label for="city-population">city population: </label>
+      <input id="city-population" [(ngModel)]="city.population" placeholder="city population"/>
+      <label for="city-lat">city latitude: </label>
+      <input id="city-lat" [(ngModel)]="city.lat" placeholder="city latitude"/>
+      <label for="city-lng">city longitude: </label>
+      <input id="city-lng" [(ngModel)]="city.lng" placeholder="city longitude"/>
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">save</button>
+  </div>
+  
+  
