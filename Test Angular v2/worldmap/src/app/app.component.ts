@@ -1,13 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from "@angular/core";
-import { RouterOutlet } from '@angular/router';
 import { Loader } from "@googlemaps/js-api-loader";
 import { } from 'googlemaps';
-import { CITIES } from '../mock-cities';
+import { CITIES } from "../mock-cities";
+
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -109,11 +106,7 @@ export class AppComponent implements AfterViewInit {
         );
         infoWindow.open(map);
       }
-      initMap();
+      // initMap();
     });
   }
-
-
-
-
 }

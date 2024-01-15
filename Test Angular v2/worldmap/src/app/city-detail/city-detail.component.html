@@ -1,0 +1,15 @@
+<!-- <div *ngIf="city"> -->
+<div *ngFor="let city of data">
+  <label for="city-name">city name: </label>
+  <input id="cityName" [(ngModel)]="city.name" placeholder="city name" />
+  <label for="cityCountry">city country: </label>
+  <input id="cityCountry" [(ngModel)]="city.country" placeholder="city country" />
+  <label for="city-cityPopulation">city population: </label>
+  <input id="cityPopulation" [(ngModel)]="city.population" placeholder="city population" />
+  <label for="cityLat-lat">city latitude: </label>
+  <input id="cityLat" [(ngModel)]="city.lat" placeholder="city latitude" />
+  <label for="cityLng-lng">city longitude: </label>
+  <input id="cityLng" [(ngModel)]="city.lng" placeholder="city longitude" />
+</div>
+<!-- <h2>My Cities</h2> -->
+<router-outlet></router-outlet>
