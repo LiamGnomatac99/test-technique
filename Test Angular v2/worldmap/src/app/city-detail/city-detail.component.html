@@ -1,15 +1,19 @@
-<!-- <div *ngIf="city"> -->
-<div *ngFor="let city of data">
-  <label for="city-name">city name: </label>
-  <input id="cityName" [(ngModel)]="city.name" placeholder="city name" />
-  <label for="cityCountry">city country: </label>
-  <input id="cityCountry" [(ngModel)]="city.country" placeholder="city country" />
-  <label for="city-cityPopulation">city population: </label>
-  <input id="cityPopulation" [(ngModel)]="city.population" placeholder="city population" />
-  <label for="cityLat-lat">city latitude: </label>
-  <input id="cityLat" [(ngModel)]="city.lat" placeholder="city latitude" />
-  <label for="cityLng-lng">city longitude: </label>
-  <input id="cityLng" [(ngModel)]="city.lng" placeholder="city longitude" />
+<div class="h-100 d-flex align-items-center justify-content-center">
+  <table>
+    <tr>
+      <th>City Name</th>
+      <th>City Country</th>
+      <th>City Population (in M)</th>
+      <th>City Latitude</th>
+      <th>City Longitude</th>
+    </tr>
+    <tr *ngFor="let city of data">
+      <td><input [(ngModel)]="city.name" placeholder="City Name" /></td>
+      <td><input [(ngModel)]="city.country" placeholder="City Country" /></td>
+      <td><input [(ngModel)]="city.population" placeholder="City Population" /></td>
+      <td><input [(ngModel)]="city.lat" placeholder="City Latitude" /></td>
+      <td><input [(ngModel)]="city.lng" placeholder="City Longitude" /></td>
+    </tr>
+  </table>
 </div>
-<!-- <h2>My Cities</h2> -->
 <router-outlet></router-outlet>

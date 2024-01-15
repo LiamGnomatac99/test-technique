@@ -61,8 +61,7 @@ export class AppComponent implements AfterViewInit {
 
       const locationButton = document.getElementById("locaBtn");
 
-      locationButton!.textContent = "Pan to Current Location";
-      locationButton!.classList.add("custom-map-control-button");
+      locationButton!.textContent = "Where am I ?";
 
       // map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
       if (locationButton !== null) {

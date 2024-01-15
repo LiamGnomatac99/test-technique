@@ -32,10 +32,6 @@ export class WorldMapComponent implements AfterViewInit {
                 });
                 const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
 
-                const pin = new PinElement({
-                    scale: 1.5,
-                });
-
                 CITIES.forEach((city, i) => {
 
                     const pin = new PinElement({
@@ -44,7 +40,7 @@ export class WorldMapComponent implements AfterViewInit {
                     let marker = new AdvancedMarkerElement({
                         map,
                         position: { lat: city.lat, lng: city.lng },
-                        title: city.name,
+                        title: city.name + "," + city.population + "M inhabitants ",
                         content: pin.element,
                     });
                     infoWindow.setContent(marker.title);
@@ -59,7 +55,7 @@ export class WorldMapComponent implements AfterViewInit {
 
             const locationButton = document.getElementById("locaBtn");
 
-            locationButton!.textContent = "Pan to Current Location";
+            locationButton!.textContent = "My position";
             locationButton!.classList.add("custom-map-control-button");
 
             // map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
