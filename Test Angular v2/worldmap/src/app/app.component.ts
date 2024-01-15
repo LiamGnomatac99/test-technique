@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { RouterOutlet } from '@angular/router';
 import { Loader } from "@googlemaps/js-api-loader";
 import { } from 'googlemaps';
+import { CITIES } from '../mock-cities';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -25,8 +26,10 @@ export class AppComponent implements AfterViewInit {
     });
 
     loader.load().then(async () => {
+      const { Map, InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+      const infoWindow = new InfoWindow();
       async function initMap(): Promise<void> {
-        const { Map, InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+
         map = new Map(document.getElementById("map") as HTMLElement, {
           center: { lat: -34.397, lng: 150.644 },
           zoom: 8,
@@ -37,21 +40,32 @@ export class AppComponent implements AfterViewInit {
         const pin = new PinElement({
           scale: 1.5,
         });
-        const marker = new AdvancedMarkerElement({
-          map,
-          position: { lat: 44.833328, lng: -0.56667 },
-          title: 'BOUBOUUUU',
-          content: pin.element,
 
-        });
-        const infoWindow = new InfoWindow();
-        infoWindow.setContent(marker.title);
-        infoWindow.open(marker.map, marker);
+        CITIES.forEach((city, i) => {
+
+          const pin = new PinElement({
+            glyph: `${i + 1}`,
+          });
+          let marker = new AdvancedMarkerElement({
+            map,
+            position: { lat: city.lat, lng: city.lng },
+            title: city.name,
+            content: pin.element,
+          });
+          infoWindow.setContent(marker.title);
+          infoWindow.open(marker.map, marker);
+          const clickListener = marker.addListener('click', () => {
+            infoWindow.close();
+            infoWindow.setContent(marker.title);
+            infoWindow.open(marker.map, marker);
+          });
+        })
       }
+
       const locationButton = document.getElementById("locaBtn");
 
       locationButton!.textContent = "Pan to Current Location";
-      // locationButton.classList.add("custom-map-control-button");
+      locationButton!.classList.add("custom-map-control-button");
 
       // map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
       if (locationButton !== null) {
@@ -66,10 +80,11 @@ export class AppComponent implements AfterViewInit {
                 };
 
                 infoWindow.setPosition(pos);
-                infoWindow.setContent("Location found.");
+                infoWindow.setContent("You are here");
                 infoWindow.open(map);
                 map.setCenter(pos);
               },
+
               () => {
                 handleLocationError(true, infoWindow, map.getCenter()!);
               }
