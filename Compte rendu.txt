@@ -4,7 +4,7 @@ Projet secret santa:
 - L'interaction avec les "panels" qui sont les blocs avec les noms se fait
   directement dans le moteur d'Unity. Les panels sont déjà dans la scène de jeu
   et sont ajoutés dans la liste de panels via celle-ci.
-
+__________________________________________________________________________
 Projet test Angular
 
 -Beaucoup de difficultés rencontrées... (l'apprentissage de l'Angular ayant été la plus grande)
@@ -21,7 +21,33 @@ sources trouvées : https://www.youtube.com/watch?v=PDMd35Uamwg&ab_channel=CoreK
  J'ai largement réutilisé le template de Tower of Heroes, le jugeant approprié pour la gestion de la base de données et pour l'architecture. 
 Cependant, j'ai trop dépendu de celui-ci, ce qui a compliqué l'intégration de nouvelles features comme la carte google map.
 
+
 Résumé :
 
 Malgré la non réussite du test Technique en Angular, je pense avoir trouvé quelques pistes intéréssantes qui m'auraient permit de le réussir avec plus de temps et d'expérience.
 J'ai pu apprendre beaucoup de choses sur le fonctionnement de ce Framework et je ne perds pas ma motivation pour en apprendre davantage.
+________________________________________________________________________________________________________________________
+
+
+UPDATE du 15/01/2024
+
+Projet de test Angular 2 - Compte rendu
+
+Le projet est quasiment terminé, mais il manque la possibilité de changer, enlever ou ajouter une ville.
+
+Les informations des villes s'affichent correctement dans les deux écrans, avec la possibilité de voir sa position sur la carte.
+
+Problèmes rencontrés :
+
+Problème de gestion du back : Utilisant Angular comme framework front-end, j'ai cru comprendre qu'il n'est pas prévu pour gérer une application "full-stack" uniquement par ce framework.
+
+Le framework ayant eu une nouvelle version récemment, j'ai commencé par adopter de nouveaux standards plus complexes à appréhender vu ma faible expérience sur Angular 
+(par exemple, le système de routing et le "standalone" m'ont ralenti et j'ai donc abandonné).
+
+Résumé :
+
+Avoir eu plus de temps et d'expérience m'a permis d'aller plus loin dans le test. J'ai pu comprendre certaines erreurs que j'avais commises dans la première version de celui-ci. 
+Malgré le fait qu'il manque la gestion des données en back-end et une esthétique correcte, je suis tout de même content du résultat et espère pouvoir aller encore plus loin avec plus d'expérience.
+
+
+
