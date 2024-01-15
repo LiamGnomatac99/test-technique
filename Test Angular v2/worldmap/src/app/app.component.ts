@@ -3,7 +3,6 @@ import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { RouterOutlet } from '@angular/router';
 import { Loader } from "@googlemaps/js-api-loader";
 import { } from 'googlemaps';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -27,13 +26,28 @@ export class AppComponent implements AfterViewInit {
 
     loader.load().then(async () => {
       async function initMap(): Promise<void> {
-        const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+        const { Map, InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
         map = new Map(document.getElementById("map") as HTMLElement, {
           center: { lat: -34.397, lng: 150.644 },
           zoom: 8,
+          mapId: '1000'
         });
+        const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+
+        const pin = new PinElement({
+          scale: 1.5,
+        });
+        const marker = new AdvancedMarkerElement({
+          map,
+          position: { lat: 44.833328, lng: -0.56667 },
+          title: 'BOUBOUUUU',
+          content: pin.element,
+
+        });
+        const infoWindow = new InfoWindow();
+        infoWindow.setContent(marker.title);
+        infoWindow.open(marker.map, marker);
       }
-      infoWindow = new google.maps.InfoWindow();
       const locationButton = document.getElementById("locaBtn");
 
       locationButton!.textContent = "Pan to Current Location";
@@ -65,8 +79,6 @@ export class AppComponent implements AfterViewInit {
             handleLocationError(false, infoWindow, map.getCenter()!);
           }
         })
-
-
       };
 
       function handleLocationError(
